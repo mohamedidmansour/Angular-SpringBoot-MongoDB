@@ -1,4 +1,4 @@
-package com.io.idmansour.entity;
+package com.io.idmansour.personne;
 
 import javax.validation.constraints.NotNull;
 

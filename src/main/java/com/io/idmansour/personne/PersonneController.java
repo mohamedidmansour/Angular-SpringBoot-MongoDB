@@ -1,4 +1,4 @@
-package com.io.idmansour.controller;
+package com.io.idmansour.personne;
 
 import org.springframework.web.bind.annotation.RestController;
 
