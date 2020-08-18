@@ -1,25 +1,40 @@
 package com.io.idmansour.entity;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.validation.constraints.NotNull;
 
-@Document(collection = "Personne")
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+@Document(collection = "personnes")
 public class Personne {
-	
-	@Transient
-	public static final String SEQUENCE_NAME = "users_sequence";
 	@Id
 	private String id;
-
+	@Field(name = "nom")
+	@NotNull
 	private String nom;
-
+	@Field(name = "prenom")
+	@NotNull
 	private String prenom;
-
+	@Field(name = "adresse")
+	@NotNull
 	private String adresse;
-	@Indexed(name = "telephone",unique = true)
+	@Field(name = "tel")
+	@NotNull
 	private String tel;
+	public Personne(String id, @NotNull String nom, @NotNull String prenom, @NotNull String adresse,
+			@NotNull String tel) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.tel = tel;
+	}
+	public Personne() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getId() {
 		return id;
 	}
@@ -50,20 +65,6 @@ public class Personne {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public Personne(String id, String nom, String prenom, String adresse, String tel) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.adresse = adresse;
-		this.tel = tel;
-	}
-	public Personne() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
 	
 	
 }
