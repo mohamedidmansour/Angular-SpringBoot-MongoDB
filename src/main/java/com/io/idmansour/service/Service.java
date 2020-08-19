@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import com.io.idmansour.personne.Personne;
 
 @Document(collection = "services")
-public class Service extends Personne{
+public class Service{
 	@Id
 	private String id;
 	@Field(name = "nomservice")

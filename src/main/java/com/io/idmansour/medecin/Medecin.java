@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.io.idmansour.personne.Personne;
+import com.io.idmansour.specialite.Specialite;
 
 @Document(collection = "medecins")
 public class Medecin extends Personne{
@@ -15,6 +16,7 @@ public class Medecin extends Personne{
 	@Field(name = "mdp")
 	@NotNull
 	private String mdp;
+	private Specialite specialite;
 	public Medecin(String id, @NotNull String nom, @NotNull String prenom, @NotNull String adresse, @NotNull String tel,
 			@NotNull String login, @NotNull String mdp) {
 		super(id, nom, prenom, adresse, tel);
