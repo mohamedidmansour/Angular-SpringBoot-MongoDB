@@ -4,6 +4,6 @@ import { Component } from "@angular/core";
     templateUrl:'./auth.component.html'
 })
 export class AuthComponent {
-    constructor(parameters) {
+    constructor() {
     }
 }
