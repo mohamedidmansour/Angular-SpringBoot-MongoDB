@@ -7,9 +7,13 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.io.idmansour.personne.Personne;
 import com.io.idmansour.specialite.Specialite;
+import com.io.idmansour.visite.Visite;
 
 @Document(collection = "medecins")
 public class Medecin extends Personne{
+	@Field(name = "prestation")
+	@NotNull
+	private String prestation;
 	@Field(name = "login")
 	@NotNull
 	private String login;
@@ -17,19 +21,51 @@ public class Medecin extends Personne{
 	@NotNull
 	private String mdp;
 	private Specialite specialite;
+	private Visite visite;
 	public Medecin(String id, @NotNull String nom, @NotNull String prenom, @NotNull String adresse, @NotNull String tel,
-			@NotNull String login, @NotNull String mdp) {
+			@NotNull String prestation, @NotNull String login, @NotNull String mdp, Specialite specialite,
+			Visite visite) {
 		super(id, nom, prenom, adresse, tel);
+		this.prestation = prestation;
+		this.login = login;
+		this.mdp = mdp;
+		this.specialite = specialite;
+		this.visite = visite;
+	}
+	public Visite getVisite() {
+		return visite;
+	}
+	public void setVisite(Visite visite) {
+		this.visite = visite;
+	}
+	public String getPrestation() {
+		return prestation;
+	}
+	public void setPrestation(String prestation) {
+		this.prestation = prestation;
+	}
+	public Specialite getSpecialite() {
+		return specialite;
+	}
+	public void setSpecialite(Specialite specialite) {
+		this.specialite = specialite;
+	}
+	
+	
+	public Medecin(String id, @NotNull String nom, @NotNull String prenom, @NotNull String adresse, @NotNull String tel,
+			@NotNull String prestation, @NotNull String login, @NotNull String mdp) {
+		super(id, nom, prenom, adresse, tel);
+		this.prestation = prestation;
 		this.login = login;
 		this.mdp = mdp;
 	}
-	public Medecin() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public Medecin(String id, @NotNull String nom, @NotNull String prenom, @NotNull String adresse, @NotNull String tel) {
+	public Medecin(String id, @NotNull String nom, @NotNull String prenom, @NotNull String adresse, @NotNull String tel,
+			@NotNull String prestation, @NotNull String login, @NotNull String mdp, Specialite specialite) {
 		super(id, nom, prenom, adresse, tel);
-		// TODO Auto-generated constructor stub
+		this.prestation = prestation;
+		this.login = login;
+		this.mdp = mdp;
+		this.specialite = specialite;
 	}
 	public String getLogin() {
 		return login;

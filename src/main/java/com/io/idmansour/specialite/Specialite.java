@@ -1,8 +1,13 @@
 package com.io.idmansour.specialite;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+
+import com.io.idmansour.medecin.Medecin;
 
 @Document(collection = "specialites")
 public class Specialite {
@@ -11,6 +16,7 @@ public class Specialite {
 	private String id;
 	@Field(name = "nomSpeacialite")
 	private String nomSpecialite;
+	
 	public Specialite() {
 		super();
 		// TODO Auto-generated constructor stub

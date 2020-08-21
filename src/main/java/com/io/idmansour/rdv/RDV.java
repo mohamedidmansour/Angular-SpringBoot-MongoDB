@@ -9,6 +9,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.io.idmansour.medecin.Medecin;
+import com.io.idmansour.patient.Patient;
+
 @Document(collection = "rdvs")
 public class RDV {
 	
@@ -21,6 +24,17 @@ public class RDV {
 	@Field(name = "motif")
 	@NotNull
 	private String motif;
+	private Medecin  medecin;
+	private Patient patient;
+	
+	public RDV(String id, @NotNull Date dateRDV, @NotNull String motif, Medecin medecin, Patient patient) {
+		super();
+		this.id = id;
+		this.dateRDV = dateRDV;
+		this.motif = motif;
+		this.medecin = medecin;
+		this.patient = patient;
+	}
 	public RDV() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -48,6 +62,19 @@ public class RDV {
 	}
 	public void setMotif(String motif) {
 		this.motif = motif;
+	}
+	
+	public Medecin getMedecin() {
+		return medecin;
+	}
+	public void setMedecin(Medecin medecin) {
+		this.medecin = medecin;
+	}
+	public Patient getPatient() {
+		return patient;
+	}
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 	@Override
 	public String toString() {

@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.io.idmansour.personne.Personne;
+import com.io.idmansour.service.Service;
 
 @Document(collection = "infermieres")
 public class Infermiere extends Personne {
@@ -17,6 +18,7 @@ public class Infermiere extends Personne {
 	@Field(name = "mdp")
 	@NotNull
 	private String mdp;
+	private Service service;
 	public Infermiere(String id, @NotNull String nom, @NotNull String prenom, @NotNull String adresse, @NotNull String tel,
 			@NotNull String login, @NotNull String mdp) {
 		super(id, nom, prenom, adresse, tel);
